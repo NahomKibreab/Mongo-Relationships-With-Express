@@ -8,6 +8,7 @@
   </head>
   <body>
     <h1>Welcome to Products</h1>
+    <a href="/product/new">Add New Product</a>
     <ul>
       <% for(product of products){ %>
       <li><a href="/product/<%= product._id %>"><%= product.name %></a></li>

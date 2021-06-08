@@ -35,7 +35,7 @@ app.get('/product/new', (req, res) => {
 app.post('/product', async (req, res) => {
   const product = new Product(req.body);
   await product.save();
-  res.send(product);
+  res.redirect('/product');
 });
 
 app.get('/product/:id', async (req, res) => {
@@ -52,8 +52,14 @@ app.get('/product/:id/edit', async (req, res) => {
 
 app.put('/product/:id', async (req, res) => {
   const { id } = req.params;
-  await Product.findByIdAndUpdate(id, req.body);
+  await Product.findByIdAndUpdate(id, req.body, { useFindAndModify: false });
   res.redirect(`/product/${id}`);
+});
+
+app.delete('/product:id', async (req, res) => {
+  const { id } = req.params;
+  await Product.findByIdAndDelete(id);
+  res.redirect('/product');
 });
 
 app.listen(3000, () => {

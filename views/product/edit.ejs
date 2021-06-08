@@ -11,7 +11,7 @@
     <form action="/product/<%= product._id %>?_method=PUT" method="POST">
       <div>
         <label for="name">Product Name</label>
-        <input type="text" name="name" id="name" value="<%= product.name %> " />
+        <input type="text" name="name" id="name" value="<%= product.name %>" />
       </div>
       <div>
         <label for="price">Product Price</label>
@@ -25,9 +25,9 @@
       <div>
         <label for="category">Category</label>
         <select name="category" id="category">
-          <option value="Fruits">Fruits</option>
-          <option value="Diary">Diary</option>
-          <option value="Vegetables">Vegetables</option>
+          <option value="Fruits" <%= product.category === "Fruits" ? 'selected' : null %> >Fruits</option>
+          <option value="Diary" <%= product.category === "Diary" ? 'selected' : null %>>Diary</option>
+          <option value="Vegetables" <%= product.category === "Vegetables" ? 'selected' : null %>>Vegetables</option>
         </select>
       </div>
       <button>Save</button>
