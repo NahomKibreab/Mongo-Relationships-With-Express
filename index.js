@@ -5,7 +5,7 @@ const Product = require('./Model/Products');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 mongoose
-  .connect('mongodb://localhost:27017/shopFarm3', {
+  .connect('mongodb://mongo:27017/shopFarm3', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
